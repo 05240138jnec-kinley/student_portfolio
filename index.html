@@ -1,38 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>My Student Portfolio</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.5;
-color: #222; }
-h1 { color: #0f172a; }
-h2 { color: #0369a1; margin-top: 28px; }
-.card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px;
-border-radius: 8px; }
-ul { padding-left: 20px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinley Tshering | Networking & Web Portfolio</title>
+  <meta name="description" content="Portfolio of Kinley Tshering, Computer Systems and Networking student at Jigme Namgyel Engineering College, Bhutan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1421'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='bold' font-size='30' text-anchor='middle' fill='%232f81f7'%3EKT%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<h1>Student Portfolio</h1>
-<p>Hello! My name is <strong>Kinley Tshering</strong>.</p>
-<h2>About Me</h2>
-<p><strong>Programme:</strong> Computer Networking and System</p>
-<p><strong>Year:</strong> Year 2</p>
-<p><strong>Interests:</strong> Web design, coding, design tools</p>
-<div class="card">
-<p>I am a student at Jigme Namgyel Engineering College (JNEC),
-studying Web Design (SYD204).</p>
-</div>
-<h2>Skills</h2>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>Git &amp; GitHub</li>
-</ul>
-<h2>Contact</h2>
-<p>Email: 05240138.jnec@rub.edu.bt</p>
-<p>Welcome to my online student portfolio.</p>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="progress"></div>
+
+<!-- LOADING SCREEN (hides itself when the page is ready) -->
+<div id="loader"><span>KT<b>.</b></span></div>
+<!-- GLOW THAT FOLLOWS THE MOUSE -->
+<div id="glow"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav">
+  <div class="container nav-in">
+    <a href="#home" class="brand">KT<span>.</span></a>
+    <nav id="menu" class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button id="musicBtn" class="icon-btn" aria-label="Play or pause music"><i class="fa-solid fa-music"></i></button>
+      <button id="themeBtn" class="icon-btn" aria-label="Switch dark or light mode"><i class="fa-solid fa-sun"></i></button>
+      <button id="burger" class="icon-btn burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<section id="home" class="hero">
+  <canvas id="net"></canvas>
+  <div class="container hero-in">
+    <div class="hero-text">
+      <p class="hello">Hi, I'm</p>
+      <h1>Kinley Tshering</h1>
+      <h2 class="role"><span id="typed"></span><i class="cursor"></i></h2>
+      <p class="headline"><strong>Connecting Devices, Building Web Solutions.</strong> Bridging the gap between robust network infrastructure and dynamic web applications.</p>
+      <p class="intro">I'm a passionate Computer Systems and Networking student from Bhutan with a curiosity for how technology connects the world. From exploring network communication to building web applications and APIs, I enjoy turning what I learn into practical projects and constantly challenging myself to grow as a developer.</p>
+      <div class="btns">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="#contact" class="btn ghost">Contact Me</a>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="images/profile.jpg" alt="Kinley Tshering" onerror="this.outerHTML='<div class=avatar>KT</div>'">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP (numbers count up) ============ -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><b data-count="4">0</b><span>Certifications</span></div>
+    <div class="stat reveal"><b data-count="3">0</b><span>Projects</span></div>
+    <div class="stat reveal"><b data-count="9">0</b><span>Skills</span></div>
+    <div class="stat reveal"><b data-count="2">0</b><span>Year of Diploma</span></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="alt">
+  <div class="container">
+    <h2 class="title">About Me</h2>
+    <p class="sub">Who I am and where I'm headed.</p>
+    <div class="grid2">
+      <div class="reveal">
+        <p>I'm Kinley Tshering, a Computer Systems and Networking student at Jigme Namgyel Engineering College, Bhutan. I'm passionate about exploring how technology connects the world, from designing networks and securing systems to developing applications that solve real-world problems.</p>
+        <p>My learning journey spans networking, Linux, databases, and programming, which I enjoy bringing together through hands-on projects. Beyond the classroom, I build web applications and REST APIs to turn ideas into practical solutions. My goal is to continuously expand my skills and grow into a professional network engineer.</p>
+        <div class="goal">
+          <i class="fa-solid fa-bullseye"></i>
+          <div><h3>Career Goal</h3><p>To become a skilled network engineer, designing, securing, and maintaining reliable networks that keep organisations connected and powered by technology in Bhutan and beyond.</p></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="mini">My Interests</h3>
+        <div class="interests">
+          <div class="chip"><i class="fa-solid fa-network-wired"></i>Networking</div>
+          <div class="chip"><i class="fa-solid fa-code"></i>Web Development</div>
+          <div class="chip"><i class="fa-solid fa-futbol"></i>Football</div>
+          <div class="chip"><i class="fa-solid fa-guitar"></i>Guitar</div>
+          <div class="chip"><i class="fa-solid fa-microphone-lines"></i>Rapping</div>
+        </div>
+        <!-- TERMINAL CARD -->
+        <div class="term reveal">
+          <div class="term-bar"><i></i><i></i><i></i><span>kinley@portfolio:~</span></div>
+<pre><span class="p">$</span> whoami
+Kinley Tshering
+<span class="p">$</span> cat location.txt
+Samdrupjongkhar, Bhutan
+<span class="p">$</span> cat studying.txt
+Computer Systems and Networking
+<span class="p">$</span> echo $GOAL
+Network Engineer</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE NETWORK DIAGRAM -->
+    <div class="net-wrap reveal">
+      <h3 class="mini">Interactive Network Diagram</h3>
+      <p class="hint">Click a device to see what it does.</p>
+      <div class="diagram">
+        <svg viewBox="0 0 600 260" aria-hidden="true">
+          <line x1="60" y1="130" x2="200" y2="130"/>
+          <line x1="200" y1="130" x2="340" y2="130"/>
+          <line x1="340" y1="130" x2="500" y2="47"/>
+          <line x1="340" y1="130" x2="500" y2="130"/>
+          <line x1="340" y1="130" x2="500" y2="203"/>
+        </svg>
+        <button class="node" style="left:10%;top:50%" data-label="Internet" data-info="The global network of networks. Your traffic reaches it through an Internet Service Provider (ISP)."><i class="fa-solid fa-cloud"></i></button>
+        <button class="node" style="left:33.3%;top:50%" data-label="Router" data-info="Connects different networks and chooses the best path for packets. In my BGP project, routers exchange routes using eBGP."><i class="fa-solid fa-route"></i></button>
+        <button class="node" style="left:56.7%;top:50%" data-label="Switch" data-info="Connects devices inside one local network (LAN) and forwards data using MAC addresses."><i class="fa-solid fa-ethernet"></i></button>
+        <button class="node" style="left:83.3%;top:18%" data-label="PC" data-info="An end device. It gets an IP address and sends requests, such as opening a website."><i class="fa-solid fa-desktop"></i></button>
+        <button class="node" style="left:83.3%;top:50%" data-label="Server" data-info="Provides services such as websites. In my BGP project, access to the DMZ is limited to web traffic using ACLs."><i class="fa-solid fa-server"></i></button>
+        <button class="node" style="left:83.3%;top:78%" data-label="Laptop" data-info="A client device on the LAN. ACLs can control which networks, like the Staff LAN, a device may reach."><i class="fa-solid fa-laptop"></i></button>
+      </div>
+      <p id="nodeInfo" class="node-info">Select a device above.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="container">
+    <h2 class="title">Skills</h2>
+    <p class="sub">Technical tools I use to build and connect things.</p>
+    <div class="skills">
+      <div class="skill reveal"><div class="ring" style="--w:70"><i class="fa-brands fa-html5"></i></div><h3>HTML</h3><span>Intermediate</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:70"><i class="fa-brands fa-css3-alt"></i></div><h3>CSS</h3><span>Intermediate</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:70"><i class="fa-brands fa-js"></i></div><h3>JavaScript</h3><span>Intermediate</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:70"><i class="fa-brands fa-python"></i></div><h3>Python</h3><span>Intermediate</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:90"><i class="fa-brands fa-linux"></i></div><h3>Linux</h3><span>Advanced</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:90"><i class="fa-solid fa-network-wired"></i></div><h3>Networking</h3><span>Advanced</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:90"><i class="fa-solid fa-database"></i></div><h3>Database Management</h3><span>Advanced</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:90"><i class="fa-solid fa-diagram-project"></i></div><h3>Cisco Packet Tracer</h3><span>Advanced</span></div>
+      <div class="skill reveal"><div class="ring" style="--w:70"><i class="fa-brands fa-git-alt"></i></div><h3>Git</h3><span>Intermediate</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="alt">
+  <div class="container">
+    <h2 class="title">Projects</h2>
+    <p class="sub">Hands-on work across web development and networking.</p>
+    <div class="filters">
+      <button class="f on" data-f="all">All</button>
+      <button class="f" data-f="web">Web</button>
+      <button class="f" data-f="net">Networking</button>
+    </div>
+    <div class="cards">
+
+      <article class="card reveal" data-cat="web">
+        <div class="card-ico"><i class="fa-solid fa-house-laptop"></i></div>
+        <h3>DrukServe</h3>
+        <p>An online platform that connects customers with home service providers in Bhutan, making it easy to find and book services like plumbing, cleaning, and electrical repairs.</p>
+        <div class="tags"><span>Web Platform</span></div>
+        <a class="btn primary sm" href="https://github.com/05240138jnec-kinley/druk-serve" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+      </article>
+
+      <article class="card reveal" data-cat="web">
+        <div class="card-ico"><i class="fa-solid fa-server"></i></div>
+        <h3>Task Manager REST API</h3>
+        <p>A REST API that manages tasks. It supports creating, viewing, updating, and deleting tasks using CRUD operations.</p>
+        <div class="tags"><span>Node.js</span><span>Express.js</span><span>MySQL</span></div>
+        <a class="btn primary sm" href="https://github.com/05240138jnec-kinley/API-Task" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+      </article>
+
+      <article class="card reveal" data-cat="net">
+        <div class="card-ico"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>BGP Network Design and Implementation</h3>
+        <p>A Packet Tracer campus network that uses eBGP to connect a university, its ISP and a cloud provider, with ACLs that block students from the Staff LAN and allow only web traffic to the DMZ.</p>
+        <div class="tags"><span>Cisco Packet Tracer</span><span>eBGP</span><span>ACLs</span></div>
+        <a class="btn primary sm" href="https://github.com/05240138jnec-kinley/bgp-network-design" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="container">
+    <h2 class="title">Education</h2>
+    <p class="sub">My academic path and certifications.</p>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <h3>Diploma in Computer Systems and Networking</h3>
+        <p class="where">Jigme Namgyel Engineering College, Royal University of Bhutan</p>
+        <p>Currently in 2nd year.</p>
+      </div>
+      <div class="t-item reveal">
+        <h3>High School</h3>
+        <p class="where">Karma Academy</p>
+        <p>2023 – 2024</p>
+      </div>
+    </div>
+
+    <h3 class="mini cert-h">Certifications</h3>
+    <div class="certs">
+      <div class="cert reveal"><i class="fa-solid fa-certificate"></i>
+        <h4>CCNA: Introduction to Networks</h4>
+        <p>Cisco Networking Academy, through Jigme Namgyel Engineering College</p>
+        <small>Completed 27 Jul 2026</small></div>
+      <div class="cert reveal"><i class="fa-solid fa-certificate"></i>
+        <h4>Master Full-Stack Web Development with Laravel &amp; PHP</h4>
+        <p>Board Infinity, via Coursera</p>
+        <small>Completed 20 Sep 2026</small>
+        <a href="https://coursera.org/verify/V58SFQGZARDL" target="_blank" rel="noopener">Verify certificate</a></div>
+      <div class="cert reveal"><i class="fa-solid fa-certificate"></i>
+        <h4>Python Tkinter: Design, Build &amp; Integrate GUIs</h4>
+        <p>EDUCBA, via Coursera</p>
+        <small>Completed 20 Sep 2026</small>
+        <a href="https://coursera.org/verify/JF8HPNBXJE2R" target="_blank" rel="noopener">Verify certificate</a></div>
+      <div class="cert reveal"><i class="fa-solid fa-certificate"></i>
+        <h4>Becoming a Linux Server Admin</h4>
+        <p>Packt, via Coursera</p>
+        <small>Completed 20 Sep 2026</small>
+        <a href="https://coursera.org/verify/Y03QFF5ZTZCO" target="_blank" rel="noopener">Verify certificate</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="alt">
+  <div class="container">
+    <h2 class="title">Contact</h2>
+    <p class="sub">Have a question or an opportunity? Send me a message.</p>
+    <div class="grid2">
+      <div class="info reveal">
+        <div class="crow"><a href="mailto:05240138.jnec@rub.edu.bt"><i class="fa-solid fa-envelope"></i>05240138.jnec@rub.edu.bt</a><button class="copy" data-copy="05240138.jnec@rub.edu.bt" aria-label="Copy email"><i class="fa-regular fa-copy"></i></button></div>
+        <div class="crow"><a href="tel:+97517119023"><i class="fa-solid fa-phone"></i>17119023</a><button class="copy" data-copy="17119023" aria-label="Copy phone number"><i class="fa-regular fa-copy"></i></button></div>
+        <a href="https://github.com/05240138jnec-kinley" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>github.com/05240138jnec-kinley</a>
+        <p><i class="fa-solid fa-location-dot"></i>Doethang, Samdrupjongkhar, Bhutan</p>
+      </div>
+      <form id="form" class="form reveal" novalidate>
+        <label>Name<input type="text" id="name" placeholder="Your name"><small class="err" id="nameErr"></small></label>
+        <label>Email<input type="email" id="email" placeholder="you@example.com"><small class="err" id="emailErr"></small></label>
+        <label>Message<textarea id="msg" rows="5" placeholder="Write your message"></textarea><small class="err" id="msgErr"></small></label>
+        <button type="submit" class="btn primary">Send Message</button>
+        <p id="ok" class="ok"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <p>&copy; <span id="year"></span> Kinley Tshering. Built with HTML, CSS and JavaScript.</p>
+  </div>
+</footer>
+
+<button id="topBtn" class="top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+<audio id="bgm" loop src="music/background.mp3"></audio>
+
+<script src="script.js"></script>
 </body>
 </html>
